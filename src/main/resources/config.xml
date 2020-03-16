@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 객체를 생성해서 가지고 있어줘. -->
+
+	<bean id = "msg" class = "com.test.test.MessageBean"></bean>
+	
+	<bean id = "lg" class = "com.test.test.LgTv"></bean>    <!-- 이건 디폴트 생성자 기준. -->
+	
+	<!-- 생성자로 주입을 하고 싶다면 constructor-arg 를 쓰면 됨. -->
+	
+	<!-- 
+	<bean id = "samsung" class = "com.test.test.SamsungTv">
+		<constructor-arg ref = "sony"></constructor-arg>    얘는 매개변수 있는 생성자.	
+	</bean> 
+	-->    
+	<!-- A짝꿍 -->
+	
+	<!-- Setter DI 개념! 세터 주입방식을 하고 싶다면 프로 퍼티를 쓰면 됨. -->
+	<bean id = "samsung" class = "com.test.test.SamsungTv">
+		<property name= "speaker" ref = "sony"/>    <!-- 얘는 매개변수 있는 생성자. -->	
+	</bean>
+	 <!-- B짝꿍 -->
+	 
+	<bean id="apple" class = "com.test.test.AppleSpeaker"></bean>
+	<bean id="sony" class = "com.test.test.SonySpeaker"></bean>
+	
+</beans>
